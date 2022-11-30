@@ -1,8 +1,8 @@
-package tests.testng01;
+package test.testng01;
 
 import org.testng.annotations.*;
 
-public class TestNGHook02 {
+public class TestNGHook01 {
 
     @BeforeSuite
     public void beforeSuite(){

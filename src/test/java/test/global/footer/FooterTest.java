@@ -1,9 +1,9 @@
-package tests.global.footer;
+package test.global.footer;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import test_flows.global.footer.FooterTestFlow;
-import tests.BaseTest;
+import test.BaseTest;
 import url.Urls;
 
 public class FooterTest extends BaseTest {

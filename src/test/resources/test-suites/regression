@@ -3,7 +3,7 @@
 <suite name="Regression">
     <test name="Global Component Test" >
         <classes>
-            <class name="tests.global.footer.FooterTest" />
+            <class name="test.global.footer.FooterTest" />
         </classes>
     </test>
 </suite>
