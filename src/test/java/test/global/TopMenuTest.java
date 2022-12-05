@@ -2,7 +2,7 @@ package test.global;
 
 import org.testng.annotations.Test;
 import test.BaseTest;
-import test_flows.global.TopMenuTestFlow;
+import test.test_flows.global.TopMenuTestFlow;
 import url.Urls;
 
 public class TopMenuTest extends BaseTest {

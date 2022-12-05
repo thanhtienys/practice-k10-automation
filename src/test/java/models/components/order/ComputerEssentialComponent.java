@@ -1,14 +1,26 @@
 package models.components.order;
 
-import models.components.Component;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public abstract class ComputerEssentialComponent extends Component {
+import java.util.List;
+
+public abstract class ComputerEssentialComponent extends BaseItemDetailsComponent {
+
+    private static final By allOptionSel = By.cssSelector(".option-list input");
 
     public ComputerEssentialComponent(WebDriver driver, WebElement component) {
         super(driver, component);
+    }
+
+    public void unselectAllDefaultOptions(){
+        List<WebElement> allOptionElem = findElements(allOptionSel);
+        allOptionElem.forEach(option -> {
+            if(option.getAttribute("checked") != null) {
+                option.click();
+            }
+        });
     }
 
     public abstract String selectProcessorType(String type);
@@ -38,4 +50,5 @@ public abstract class ComputerEssentialComponent extends Component {
             throw new RuntimeException("The option: " + type + " is not existing to select!");
         }
     }
+
 }
