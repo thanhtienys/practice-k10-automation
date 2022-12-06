@@ -1,14 +1,18 @@
 package test_data.computer;
 
+import java.util.List;
+
 public class ComputerData {
 
     private String processorType;
     private String ram;
     private String os;
     private String hdd;
-    private String software;
 
-    public ComputerData(String processorType, String ram, String os, String hdd, String software) {
+    //TODO
+    private List<String> software;
+
+    public ComputerData(String processorType, String ram, String os, String hdd, List<String> software) {
         this.processorType = processorType;
         this.ram = ram;
         this.os = os;
@@ -48,11 +52,11 @@ public class ComputerData {
         this.hdd = hdd;
     }
 
-    public String getSoftware() {
+    public List<String> getSoftware() {
         return software;
     }
 
-    public void setSoftware(String software) {
+    public void setSoftware(List<String> software) {
         this.software = software;
     }
 
@@ -63,7 +67,7 @@ public class ComputerData {
                 ", ram='" + ram + '\'' +
                 ", os='" + os + '\'' +
                 ", hdd='" + hdd + '\'' +
-                ", software='" + software + '\'' +
+                ", software=" + software +
                 '}';
     }
 }

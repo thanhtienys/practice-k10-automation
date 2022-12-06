@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ComputerEssentialComponent extends BaseItemDetailsComponent {
@@ -31,6 +32,11 @@ public abstract class ComputerEssentialComponent extends BaseItemDetailsComponen
     }
 
     public String selectOS(String type){
+        return selectCompOption(type);
+    }
+
+    //TODO
+    public String selectSoftware(String type){
         return selectCompOption(type);
     }
 

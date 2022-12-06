@@ -8,9 +8,8 @@ import models.components.global.footer.FooterComponent;
 import models.components.global.header.HeaderComponent;
 import models.components.product.ProductGridComponent;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 public class BasePage extends Component {
 

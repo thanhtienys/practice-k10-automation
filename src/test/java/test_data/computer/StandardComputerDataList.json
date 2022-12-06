@@ -4,20 +4,27 @@
     "ram": "8GB",
     "os": "Ubuntu",
     "hdd": "400 GB",
-    "software": "Microsoft Office"
+    "software": [
+      "Microsoft Office",
+      "Acrobat Reader"
+    ]
   },
   {
     "processorType": "2.5GHz",
     "ram": "4GB",
     "os": "Windows 7",
     "hdd": "320 GB",
-    "software": "Acrobat Reader"
+    "software": [
+      "Acrobat Reader"
+    ]
   },
   {
     "processorType": "2.2GHz",
     "ram": "2GB",
     "os": "Windows 10",
     "hdd": "320 GB",
-    "software": "Total Commander"
+    "software": [
+      "Total Commander"
+    ]
   }
 ]

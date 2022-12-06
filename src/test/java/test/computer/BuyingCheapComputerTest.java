@@ -19,7 +19,9 @@ public class BuyingCheapComputerTest extends BaseTest implements Urls {
         int randomQuantity = new SecureRandom().nextInt(100) + 2;
         OrderComputerFlow<CheapComputerComponent> orderComputerFlow =
                 new OrderComputerFlow<>(driver, CheapComputerComponent.class, computerData, randomQuantity);
+
         orderComputerFlow.buildCompSpecAndAddToCart();
+        orderComputerFlow.verifyShoppingCartPage();
     }
 
     @DataProvider
