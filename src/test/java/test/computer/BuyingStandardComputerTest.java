@@ -22,6 +22,10 @@ public class BuyingStandardComputerTest extends BaseTest implements Urls {
 
         orderComputerFlow.buildCompSpecAndAddToCart();
         orderComputerFlow.verifyShoppingCartPage();
+        orderComputerFlow.agreeTOSAndCheckOut();
+        orderComputerFlow.inputBillingAddress();
+        orderComputerFlow.inputShippingAddress();
+        orderComputerFlow.selectShippingMethod();
     }
 
     @DataProvider

@@ -22,6 +22,8 @@ public class BuyingCheapComputerTest extends BaseTest implements Urls {
 
         orderComputerFlow.buildCompSpecAndAddToCart();
         orderComputerFlow.verifyShoppingCartPage();
+        orderComputerFlow.agreeTOSAndCheckOut();
+        orderComputerFlow.inputBillingAddress();
     }
 
     @DataProvider

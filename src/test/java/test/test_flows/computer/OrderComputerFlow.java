@@ -2,13 +2,22 @@ package test.test_flows.computer;
 
 import models.components.cart.CartItemRowComponent;
 import models.components.cart.TotalComponent;
+import models.components.checkout.BillingAddressComponent;
+import models.components.checkout.ShippingAddressComponent;
+import models.components.checkout.ShippingMethodComponent;
 import models.components.order.ComputerEssentialComponent;
+import models.pages.CheckoutOptionsPage;
+import models.pages.CheckoutPage;
 import models.pages.ComputerItemDetailsPage;
 import models.pages.ShoppingCartPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import test_data.DataObjectBuilder;
 import test_data.computer.ComputerData;
+import test_data.user.UserDataObject;
 
+import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -18,9 +27,10 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
 
     private final WebDriver driver;
     private final Class<T> computerEssentialComponent;
-    private ComputerData computerData;
+    private final ComputerData  computerData;
     private int quantity = 1;
     private double totalItemPrice;
+    private UserDataObject defaultCheckoutUser;
 
     public OrderComputerFlow(WebDriver driver, Class<T> computerEssentialComponent, ComputerData computerData) {
         this.driver = driver;
@@ -141,4 +151,60 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
         Assert.assertEquals((checkoutSubTotal + checkoutOtherFeesTotal), checkoutTotal, "[ERR] Checking out Total is incorrect");
     }
 
+    public void agreeTOSAndCheckOut() {
+
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        shoppingCartPage.totalComponent().agreeTOS();
+        shoppingCartPage.totalComponent().clickOnCheckOutBtn();
+        new CheckoutOptionsPage(driver).checkoutAsGuest();
+    }
+
+    public void inputBillingAddress() {
+
+        String defaultCheckoutUserDataFileLoc = "/src/test/java/test_data/user/DefaultCheckOutUser.json";
+        defaultCheckoutUser = DataObjectBuilder.buildDataObjectFrom(defaultCheckoutUserDataFileLoc, UserDataObject.class);
+
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        BillingAddressComponent billingAddressComponent = checkoutPage.billingAddressComponent();
+
+        billingAddressComponent.selectInputNewAddress();
+        billingAddressComponent.inputFirstname(defaultCheckoutUser.getFirstName());
+        billingAddressComponent.inputLastname(defaultCheckoutUser.getLastName());
+        billingAddressComponent.inputEmail(defaultCheckoutUser.getEmail());
+        billingAddressComponent.selectCountry(defaultCheckoutUser.getCountry());
+        billingAddressComponent.selectState(defaultCheckoutUser.getState());
+        billingAddressComponent.inputCity(defaultCheckoutUser.getCity());
+        billingAddressComponent.inputAdd1(defaultCheckoutUser.getAdd1());
+        billingAddressComponent.inputZIPCode(defaultCheckoutUser.getZipCode());
+        billingAddressComponent.inputPhoneNum(defaultCheckoutUser.getPhoneNum());
+
+        billingAddressComponent.clickOnContinueBtn();
+
+    }
+
+    public void inputShippingAddress() {
+
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        ShippingAddressComponent shippingAddressComponent = checkoutPage.shippingAddressComponent();
+
+        shippingAddressComponent.clickOnContinueBtn();
+    }
+
+    public void selectShippingMethod() {
+
+        List<String> shippingMethod = Arrays.asList("Ground", "Next Day Air", "2nd Day Air");
+        int randomElemIndex = new SecureRandom().nextInt(shippingMethod.size());
+        String randomMethod = shippingMethod.get(randomElemIndex);
+
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        ShippingMethodComponent shippingMethodComponent = checkoutPage.shippingMethodComponent();
+
+        shippingMethodComponent.selectShippingMethod(randomMethod);
+        shippingMethodComponent.clickOnContinueBtn();
+
+        try {
+            Thread.sleep(2000);
+        } catch (Exception ignored) {
+        }
+    }
 }
