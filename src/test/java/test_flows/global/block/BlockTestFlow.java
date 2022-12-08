@@ -1,4 +1,4 @@
-package test.test_flows.global.block;
+package test_flows.global.block;
 
 
 import models.components.global.block.BlockBoxComponent;

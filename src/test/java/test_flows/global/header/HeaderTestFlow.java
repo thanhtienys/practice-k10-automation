@@ -1,4 +1,4 @@
-package test.test_flows.global.header;
+package test_flows.global.header;
 
 import models.components.global.header.HeaderComponent;
 import models.components.global.header.HeaderLink;

@@ -1,9 +1,8 @@
 package test.global.block;
 
-import models.components.global.block.BlockComponent;
 import org.testng.annotations.Test;
 import test.BaseTest;
-import test.test_flows.global.block.BlockTestFlow;
+import test_flows.global.block.BlockTestFlow;
 import url.Urls;
 
 public class BlockTest extends BaseTest {

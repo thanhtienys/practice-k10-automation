@@ -1,4 +1,4 @@
-package test.test_flows.global.footer;
+package test_flows.global.footer;
 
 import models.components.global.footer.*;
 import models.pages.BasePage;

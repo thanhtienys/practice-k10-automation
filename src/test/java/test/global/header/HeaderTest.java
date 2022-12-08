@@ -2,7 +2,7 @@ package test.global.header;
 
 import org.testng.annotations.Test;
 import test.BaseTest;
-import test.test_flows.global.header.HeaderTestFlow;
+import test_flows.global.header.HeaderTestFlow;
 import url.Urls;
 
 public class HeaderTest extends BaseTest {

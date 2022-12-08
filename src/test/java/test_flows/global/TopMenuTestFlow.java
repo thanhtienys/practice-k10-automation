@@ -1,4 +1,4 @@
-package test.test_flows.global;
+package test_flows.global;
 
 import models.components.global.TopMenuComponent;
 import models.components.global.TopMenuComponent.MainCategoryItem;

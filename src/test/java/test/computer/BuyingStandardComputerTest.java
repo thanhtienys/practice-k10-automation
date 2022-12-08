@@ -6,7 +6,9 @@ import org.testng.annotations.Test;
 import test.BaseTest;
 import test_data.computer.ComputerData;
 import test_data.DataObjectBuilder;
-import test.test_flows.computer.OrderComputerFlow;
+import test_flows.computer.OrderComputerFlow;
+import test_data.credit.CreditCardType;
+import test_data.credit.PaymentMethodType;
 import url.Urls;
 
 import java.security.SecureRandom;
@@ -26,6 +28,9 @@ public class BuyingStandardComputerTest extends BaseTest implements Urls {
         orderComputerFlow.inputBillingAddress();
         orderComputerFlow.inputShippingAddress();
         orderComputerFlow.selectShippingMethod();
+        orderComputerFlow.selectPaymentMethod(PaymentMethodType.CREDIT_CARD);
+        orderComputerFlow.inputPaymentInfo(CreditCardType.VISA);
+        orderComputerFlow.confirmOrderComponent();
     }
 
     @DataProvider

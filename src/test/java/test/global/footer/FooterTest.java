@@ -2,7 +2,7 @@ package test.global.footer;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import test.test_flows.global.footer.FooterTestFlow;
+import test_flows.global.footer.FooterTestFlow;
 import test.BaseTest;
 import url.Urls;
 

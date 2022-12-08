@@ -4,8 +4,13 @@ import org.apache.commons.exec.OS;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import url.Urls;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DriverFactory {
 
@@ -25,4 +30,18 @@ public class DriverFactory {
         return driver;
 
     }
+
+    public static WebDriver getFireFoxDriver(){
+
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--incognito");
+
+        WebDriver driver = new FirefoxDriver(firefoxOptions);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5L));
+
+        return driver;
+
+    }
+
+
 }
